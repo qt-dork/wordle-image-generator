@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import WordleLetter from './WordleLetter'
 
@@ -10,13 +10,9 @@ const LetterLine = styled.div`
 
 const LetterGrid = styled.div`
   display: grid;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(1fr);
   grid-gap: 8px;
   padding: 24px;
-
-  &.true {
-    background-color: white;
-  }
 `
 
 const LetterContainer = styled.div`
@@ -37,18 +33,52 @@ const WordleText = styled.div`
   font-size: 8;
 `
 
-const WordleGraph = ({grid, firstLine, date, childRef }) => {
+const WordleGraph = ({grid, firstLine, childRef }) => {
+  const [gridColorIndexes, setGridColorIndexes] = useState([]);
+  useEffect(() => {
+    const emojiGrid = [];
+
+    grid.forEach((line) => {
+      const emojiLine = [];
+      for (let index = 0; index < 5; index++) {
+        console.log(matchesIndex(line.perfectIndexes, index + 1));
+        if (matchesIndex(line.perfectIndexes, index + 1)) {
+          emojiLine.push('green');
+        }
+        else if (matchesIndex(line.misplacedIndexes, index + 1)) {
+          emojiLine.push('yellow');
+        }
+        else {
+          emojiLine.push('gray');
+        }
+      }
+      emojiGrid.push(emojiLine);
+    });
+    
+    setGridColorIndexes(emojiGrid);
+  }, [grid])
+
+  function matchesIndex(line, index) {
+    let b = false;
+    line.forEach((item) => {
+      if (index === item) {
+        b = true;
+      }
+    });
+    return b;
+  }
+
   return (
     <LetterContainer>
       <LetterGrid ref={childRef}>
-        {grid.map((line, index) =>
+        {gridColorIndexes.map((line, index) =>
           <LetterLine key={index}>
             {line.map((item, index) => 
-              <WordleLetter item={item} index={index} />
+              <WordleLetter color={item} index={index} />
             )}
           </LetterLine>
         )}
-      <WordleText><p>{firstLine}</p><p>{date}</p></WordleText>
+      <WordleText><p>{firstLine[0]}</p><p>{firstLine[1]}</p></WordleText>
       </LetterGrid>
     </LetterContainer>
   );
