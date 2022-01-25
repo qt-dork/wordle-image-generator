@@ -49,7 +49,7 @@ const ImageWrapper = ({grid, firstLine, output}) => {
     <>
       <OutputContainer>
         <Wrapper>
-          <label for="output">Shareable:</label>
+          <label htmlFor="output">Shareable:</label>
           <Output><WordleGraph grid={grid} firstLine={firstLine} childRef={wordleRef} /></Output>
         </Wrapper>
         <StyledButton onClick={() => {clipboard.copy(output); onButtonClick()}}>Save Image and Copy Alt-Text</StyledButton>

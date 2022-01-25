@@ -24,7 +24,7 @@ const Inputer = ({value, handleTextChange}) => {
 
   return (
     <InputContainer>
-      <label for="input">Your Wordle result:</label>
+      <label htmlFor="input">Your Wordle result:</label>
       <textarea
         autoComplete="false"
         autoCorrect="false"

@@ -74,7 +74,7 @@ const WordleGraph = ({grid, firstLine, childRef }) => {
         {gridColorIndexes.map((line, index) =>
           <LetterLine key={index}>
             {line.map((item, index) => 
-              <WordleLetter color={item} index={index} />
+              <WordleLetter color={item} key={index} />
             )}
           </LetterLine>
         )}
