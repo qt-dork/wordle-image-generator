@@ -87,7 +87,7 @@ export default function Home() {
   
   const firstLineTester = (line) => {
     const regexDay = /[Ww]ordle \d+/g;
-    const regexCount = /[1-6Xx]\/6/g;
+    const regexCount = /[1-6Xx]\/6\*?/g;
     const arr = [];
     arr.push(line.match(regexDay));
     arr.push(line.match(regexCount));

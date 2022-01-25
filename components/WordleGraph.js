@@ -41,7 +41,6 @@ const WordleGraph = ({grid, firstLine, childRef }) => {
     grid.forEach((line) => {
       const emojiLine = [];
       for (let index = 0; index < 5; index++) {
-        console.log(matchesIndex(line.perfectIndexes, index + 1));
         if (matchesIndex(line.perfectIndexes, index + 1)) {
           emojiLine.push('green');
         }
