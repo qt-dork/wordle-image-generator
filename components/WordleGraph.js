@@ -29,8 +29,16 @@ const WordleText = styled.div`
   height: 12px;
   display: flex;
   justify-content: space-between;
-  align-content: end;
+  align-items: center;
   font-size: 8;
+`
+
+const TextLeft = styled.p`
+  flex-grow: 1;
+`
+
+const TextRight = styled.p`
+  flex-shrink: 0;
 `
 
 const WordleGraph = ({grid, firstLine, childRef }) => {
@@ -77,7 +85,7 @@ const WordleGraph = ({grid, firstLine, childRef }) => {
             )}
           </LetterLine>
         )}
-      <WordleText><p>{firstLine[0]}</p><p>{firstLine[1]}</p></WordleText>
+      <WordleText><TextLeft>{firstLine[0]}</TextLeft><TextRight>{firstLine[1]}</TextRight></WordleText>
       </LetterGrid>
     </LetterContainer>
   );
