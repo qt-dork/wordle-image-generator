@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState, useEffect } from "react";
 import { useClipboard } from "use-clipboard-copy";
-import { toPng } from "html-to-image";
+import { toPng, toBlob } from "html-to-image";
 import styled from "styled-components";
 
 import WordleGraph from "./WordleGraph";
@@ -35,14 +35,24 @@ const ImageWrapper = ({grid, firstLine, output}) => {
   const clipboard = useClipboard();  
 
   const onButtonClick = useCallback(() => {
-    if (isMobileOrTabletDevice()) {
-      toPng(wordleRef.current, {cacheBust:true, backgroundColor: "#ffffff"})
-      .then((dataUrl) => {
-        var img = new Image()
-        img.src = dataUrl
-        navigator.share({
-          files: img,
-        });
+    if (navigator.canShare(new Image) || navigator.canShare || isMobileOrTablet) {
+      toBlob(wordleRef.current, {cacheBust:true, backgroundColor: "#ffffff"})
+      .then((blob) => {
+        const filesArray = [
+          new File(
+            [blob],
+            'wordle-image.png',
+            {
+              type: "image/png",
+              lastModified: new Date().getTime()
+            }
+          )
+        ];
+        const shareData = {
+          files: filesArray,
+        };
+
+        navigator.share(shareData);
       })
       .catch((err) => {
         console.error('oops, something went wrong!', err);
@@ -51,10 +61,10 @@ const ImageWrapper = ({grid, firstLine, output}) => {
     else {
       toPng(wordleRef.current, { cacheBust: true, backgroundColor: "#ffffff" })
       .then((dataUrl) => {
-      const link = document.createElement('a')
-      link.download = `wordle-image.png`
-      link.href = dataUrl
-      link.click()
+        const link = document.createElement('a')
+        link.download = `wordle-image.png`
+        link.href = dataUrl
+        link.click()
       })
       .catch((err) => {
         console.log(err)
