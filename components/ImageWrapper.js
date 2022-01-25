@@ -35,14 +35,13 @@ const ImageWrapper = ({grid, firstLine, output}) => {
   const clipboard = useClipboard();  
 
   const onButtonClick = useCallback(() => {
-    if (navigator.canShare) {
+    if (navigator.canShare && isMobileOrTablet) {
       toPng(wordleRef.current, {cacheBust:true, backgroundColor: "#ffffff"})
       .then((dataUrl) => {
-        const shareLink = document.createElement('a')
-        shareLink.download = `wordle-image.png`
-        shareLink.href = dataUrl
+        var img = new Image()
+        img.src = dataUrl
         navigator.share({
-          url: shareLink.href,
+          files: img,
         });
       })
       .catch((err) => {
