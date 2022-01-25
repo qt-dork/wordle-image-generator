@@ -29,11 +29,13 @@ const Wrapper = styled.div`
 
 const ImageWrapper = ({grid, firstLine, output}) => {
   const istMobOrTab = useIsMobileOrTablet();
+  console.log(istMobOrTab);
   const wordleRef = useRef(null);
   const clipboard = useClipboard();  
 
   const onButtonClick = useCallback(() => {
     if (wordleRef.current === null || grid.length === 0) {
+      console.log("here");
       return
     }
 
