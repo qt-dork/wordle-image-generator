@@ -37,8 +37,7 @@ const ImageWrapper = ({grid, firstLine, output}) => {
       return
     }
 
-    if (navigator.canShare([new File()]) && navigator.canShare && istMobOrTab) {
-      console.log("here");
+    if (navigator.canShare && istMobOrTab) {
       toBlob(wordleRef.current, {cacheBust:true, backgroundColor: "#ffffff"})
       .then((blob) => {
         const filesArray = [
@@ -83,7 +82,6 @@ const ImageWrapper = ({grid, firstLine, output}) => {
           <Output><WordleGraph grid={grid} firstLine={firstLine} childRef={wordleRef} /></Output>
         </Wrapper>
         <StyledButton onClick={() => {clipboard.copy(output); onButtonClick()}}>Save Image and Copy Alt-Text</StyledButton>
-        {/* <StyledButton onClick={() => {clipboard.copy(output); onButtonClick()}}>Save Image and Copy Alt-Text</StyledButton> */}
       </OutputContainer>
     </>
   );
