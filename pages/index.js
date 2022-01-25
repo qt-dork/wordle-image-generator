@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Head from "next/head";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -211,6 +212,13 @@ export default function Home() {
 
   return (
     <Content>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <title>Wordle Image Generator: Featuring Alt-Text!</title>
+        <meta name="author" content="Evie Finch" />
+        <meta name="description" content="Generates an image and alt-text for Wordle endgames" />
+      </Head>
       <Header />
       <App>
         <Inputer value={input} handleTextChange={setInput} />
