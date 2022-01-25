@@ -31,11 +31,15 @@ const ImageWrapper = ({grid, firstLine, output}) => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
   useEffect(() => {
     setIsMobileOrTablet(isMobileOrTabletDevice());
+    console.log(isMobileOrTabletDevice());
+    if (navigator.canShare) {
+      console.log("true");
+    }
   }, []);
   const clipboard = useClipboard();  
 
   const onButtonClick = useCallback(() => {
-    if (navigator.canShare && isMobileOrTablet) {
+    if (isMobileOrTablet) {
       toPng(wordleRef.current, {cacheBust:true, backgroundColor: "#ffffff"})
       .then((dataUrl) => {
         var img = new Image()
