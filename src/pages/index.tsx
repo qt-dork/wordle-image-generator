@@ -98,10 +98,12 @@ export default function Home() {
 
   const firstLineGrabber = (line: string) => {
     const regexDay = /[Ww]ordle \d+/;
-    const regexCount = /[1-6Xx]\/6\*?/g;
-    const firstLine = {
-      day: regexDay.exec(line) !== null ? regexDay.exec(line)![0] : '',
-      score: regexCount.exec(line) !== null ? regexCount.exec(line)![0] : '',
+    const regexScore = /[1-6Xx]\/6\*?/;
+    let placeholderDay = line.match(regexDay);
+    let placeholderScore = line.match(regexScore);
+    let firstLine = {
+      day: placeholderDay ? placeholderDay[0] : '',
+      score: placeholderScore ? placeholderScore[0] : '',
     };
 
     return firstLine;

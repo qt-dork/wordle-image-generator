@@ -48,7 +48,7 @@ const ImageWrapper = ({ indexes, firstLine, output, isMobileOrTablet }: ImageWra
   const [ file, setFile ] = useState<File[]>();
   const {share } = useShare({ title: 'Your Wordle Image', files: file })
   
-  async function generateImage(e: SyntheticEvent) {
+  const generateImage = useCallback(async (e: SyntheticEvent) => {
     e.preventDefault();
     if (!ref.current) {
       return;
@@ -76,7 +76,7 @@ const ImageWrapper = ({ indexes, firstLine, output, isMobileOrTablet }: ImageWra
     } catch (error) {
       console.error(error);
     }
-  }
+  }, [])
   
 
   return (
@@ -88,7 +88,7 @@ const ImageWrapper = ({ indexes, firstLine, output, isMobileOrTablet }: ImageWra
             <WordleGraph indexes={indexes} firstLine={firstLine} ref={ref} />
           </Output>
         </Wrapper>
-        <StyledButton onClick={generateImage}>
+        <StyledButton onClick={(e) => generateImage}>
           Save Image and Copy Alt-Text
         </StyledButton>
       </OutputContainer>
