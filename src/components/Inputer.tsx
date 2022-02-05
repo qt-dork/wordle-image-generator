@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import * as React from 'react';
 
 const InputContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
-`
+`;
 
 const Input = styled.textarea`
   font-size: 20px;
@@ -11,16 +12,21 @@ const Input = styled.textarea`
 
   @media (orientation: landscape) {
     width: 15em;
-    height: 100%;    
+    height: 100%;
   }
 
   @media (orientation: portrait) {
     height: 11em;
   }
-`
+`;
 
-const Inputer = ({value, handleTextChange}) => {
-  const onChange = e => handleTextChange(e.target.value);
+interface InputerProps {
+  value: string;
+  handleTextChange: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Inputer = ({ value, handleTextChange }: InputerProps) => {
+  const onChange = (e: any) => handleTextChange(e.target.value);
 
   return (
     <InputContainer>
@@ -34,10 +40,10 @@ const Inputer = ({value, handleTextChange}) => {
         rows={8}
         spellCheck="false"
         value={value}
-        onChange={e => handleTextChange(e.target.value)}
-        ></textarea>
+        onChange={(e) => handleTextChange(e.target.value)}
+      ></textarea>
     </InputContainer>
   );
-}
+};
 
 export default Inputer;
