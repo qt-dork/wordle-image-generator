@@ -99,9 +99,9 @@ export default function Home() {
   const firstLineGrabber = (line: string) => {
     const regexDay = /[Ww]ordle \d+/;
     const regexCount = /[1-6Xx]\/6\*?/g;
-    let firstLine = {
-      day: regexDay.exec(line)?.[0],
-      score: regexCount.exec(line)?.[0],
+    const firstLine = {
+      day: regexDay.exec(line) !== null ? regexDay.exec(line)![0] : '',
+      score: regexCount.exec(line) !== null ? regexCount.exec(line)![0] : '',
     };
 
     return firstLine;
