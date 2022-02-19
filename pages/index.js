@@ -88,7 +88,7 @@ export default function Home() {
   const firstLineTester = (line) => {
     const regex = /(?<day>.* \d+) (?<count>[1-6x]\/6\*?)/gi
     const match = regex.exec(line);
-    return [match.groups.day, match.groups.count]
+    return [match?.groups.day, match?.groups.count]
   }
 
   // Functions are based off of cariad's wonderful wa11y website
