@@ -1,0 +1,212 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: var(--body-font);
+  background: var(--light-color-tone-7);
+  color: var(--light-color-tone-1);
+  font-size: var(--fs-regular);
+
+  /* Variables used in design */
+  --perfect-border: var(--light-green-border);
+  --perfect-gradient: var(--light-green-gradient);
+  --misplaced-border: var(--light-yellow-border);
+  --misplaced-gradient: var(--light-yellow-gradient);
+  --wrong-border: var(--light-gray-border);
+  --wrong-gradient: var(--light-gray-gradient);
+  --body-font: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  /* Font sizes */
+  --fs-tiny: 12px;
+  --fs-small: 14px;
+  --fs-regular: 16px;
+  --fs-medium: 20px;
+  --fs-large: 36px;
+
+  /* Light Theme colors */
+  --light-color-tone-1: #1a1a1b; /* Light mode text color */
+  --light-color-tone-2: #787c8e;
+  --light-color-tone-3: #878a8c;
+  --light-color-tone-4: #d3d6da;
+  --light-color-tone-5: #edeff1;
+  --light-color-tone-6: #f6f7f8;
+  --light-color-tone-7: #ffffff; /* Light mode background color */
+  --light-opacity-50: rgba(255, 255, 255, 0.5);
+
+  /* Dark theme colors */
+  --dark-color-tone-1: #d7dadc; /* Dark mode text color */
+  --dark-color-tone-2: #818384;
+  --dark-color-tone-3: #565758;
+  --dark-color-tone-4: #3a3a3c;
+  --dark-color-tone-5: #272729;
+  --dark-color-tone-6: #1a1a1b;
+  --dark-color-tone-7: #121213; /* Dark mode background color */
+  --dark-opacity-50: rgba(0, 0, 0, 0.5);
+
+  /* Custom colors */
+  --light-gray-gradient: #F9FAFB;
+  --light-gray-border: #BBBCBE;
+  --dark-gray-gradient: #D3D4D6;
+  --dark-gray-border: #717273;
+  --light-yellow-gradient: #FFF7D0;
+  --light-yellow-border: #F6AD55;
+  --dark-yellow-gradient: var(--light-yellow-border);
+  --dark-yellow-border: #A2632D;
+  --light-green-gradient: #DAEFAA;
+  --light-green-border: #27BA7C;
+  --dark-green-gradient: #55D1A1;
+  --dark-green-border: #1E8255;
+  --light-blue-gradient: #CEF5FD;
+  --light-blue-border: #53A9F9;
+  --dark-blue-gradient: #82C2FC;
+  --dark-blue-border: #3A76AD;
+  --light-orange-gradient: #F8D39C;
+  --light-orange-border: #F36B3D;
+  --dark-orange-gradient: #F8A98E;
+  --dark-orange-border: #BB522F;
+}
+
+.light-no-colorblind {
+  background: var(--light-color-tone-7);
+  color: var(--light-color-tone-1);
+
+  --perfect-border: var(--light-green-border);
+  --perfect-gradient: var(--light-green-gradient);
+  --misplaced-border: var(--light-yellow-border);
+  --misplaced-gradient: var(--light-yellow-gradient);
+  --wrong-border: var(--light-gray-border);
+  --wrong-gradient: var(--light-gray-gradient);
+}
+
+.light-with-colorblind {
+  background: var(--light-color-tone-7);
+  color: var(--light-color-tone-1);
+
+  --perfect-border: var(--light-orange-border);
+  --perfect-gradient: var(--light-orange-gradient);
+  --misplaced-border: var(--light-blue-border);
+  --misplaced-gradient: var(--light-blue-gradient);
+  --wrong-border: var(--light-gray-border);
+  --wrong-gradient: var(--light-gray-gradient);
+}
+
+.dark-no-colorblind {
+  background: var(--dark-color-tone-7);
+  color: var(--dark-color-tone-1);
+
+  --perfect-border: var(--dark-green-border);
+  --perfect-gradient: var(--dark-green-gradient);
+  --misplaced-border: var(--dark-yellow-border);
+  --misplaced-gradient: var(--dark-yellow-gradient);
+  --wrong-border: var(--dark-gray-border);
+  --wrong-gradient: var(--dark-gray-gradient);
+}
+
+.dark-with-colorblind {
+  background: var(--dark-color-tone-7);
+  color: var(--dark-color-tone-1);
+
+  --perfect-border: var(--dark-orange-border);
+  --perfect-gradient: var(--dark-orange-gradient);
+  --misplaced-border: var(--dark-blue-border);
+  --misplaced-gradient: var(--dark-blue-gradient);
+  --wrong-border: var(--dark-gray-border);
+  --wrong-gradient: var(--dark-gray-gradient);
+}
+
+* {
+  margin: 0;
+  line-height: calc(1em + 0.5rem);
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+header,
+footer {
+  max-width: 36rem;
+}
+
+p {
+  line-height: 1.4;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  font-size: 20px;
+  resize: none;
+}
+
+button {
+  height: 3rem;
+  margin-top: 0.3rem;
+}
+
+@media (orientation: landscape) {
+  body {
+    --vertical-spacing: 3rem;
+    /* align-items: center; */
+    min-height: 100vh;
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    --vertical-spacing: 1rem;
+    margin-top: 1rem;
+  }
+
+  h1 {
+    margin-top: 0.5rem;
+  }
+}
