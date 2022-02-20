@@ -86,12 +86,9 @@ export default function Home() {
   }, [input]);
   
   const firstLineTester = (line) => {
-    const regexDay = /[Ww]ordle \d+/g;
-    const regexCount = /[1-6Xx]\/6\*?/g;
-    const arr = [];
-    arr.push(line.match(regexDay));
-    arr.push(line.match(regexCount));
-    return arr;
+    const regex = /(?<day>.* \d+) (?<count>[1-6x]\/6\*?)/gi
+    const match = regex.exec(line);
+    return [match?.groups.day, match?.groups.count]
   }
 
   // Functions are based off of cariad's wonderful wa11y website
