@@ -26,5 +26,8 @@
   #header-top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
   }
+  
 </style>
