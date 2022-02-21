@@ -5,8 +5,8 @@ export const firstLine = (line: string) => {
   const match = regex.exec(line);
 
   return {
-    day: match?.groups.day,
-    score: match?.groups.count,
+    day: match?.groups.day === undefined ? '' : match?.groups.day,
+    score: match?.groups.count === undefined ? '' : match?.groups.count,
   };
 }
 

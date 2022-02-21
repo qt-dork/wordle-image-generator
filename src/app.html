@@ -2,9 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="" />
-		<link rel="icon" href="%svelte.assets%/favicon.svg" />
+		<link rel="icon" href="%svelte.assets%//favicon.ico" />
+		<link rel="icon" href="%svelte.assets%/icon.svg" />
+		<link rel="apple-touch-icon" href="%svelte.assets%/apple-touch-icon.png" />
+		<link rel="manifest" href="%svelte.assets%/manifest.webmanifest" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+		<meta name="author" content="Evie Finch" />
+		<meta name="description" content="Generates an image and alt-text for Wordle endgames" />
+	
+		<!-- Essential META Tags -->
+		<meta property="og:title" content="Wordle Image Generator" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="%svelte.assets%/og_1200x630.png" />
+		<meta property="og:url" content="https://img.wa11y.co" />
+		
+		<!-- Non-Essential, but Recommended -->
+		<meta property="og:description" content="Generate accessible images for your Wordle games" />
+		<meta property="og:site_name" content="Wordle Image Generator" />
+		<meta name="twitter:image:alt" content="Create Wordle Images" />
+
 		%svelte.head%
 	</head>
 	<body>

@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@sveltejs/adapter-auto': next
+  '@sveltejs/adapter-static': ^1.0.0-next.0
   '@sveltejs/kit': next
   '@types/file-saver': ^2.0.5
   '@typescript-eslint/eslint-plugin': ^5.10.1
@@ -20,6 +21,7 @@ specifiers:
   typescript: ~4.5.4
 
 dependencies:
+  '@sveltejs/adapter-static': 1.0.0-next.0
   file-saver: 2.0.5
   html-to-image: 1.9.0
 
@@ -148,6 +150,10 @@ packages:
       esbuild: 0.13.15
       tiny-glob: 0.2.9
     dev: true
+
+  /@sveltejs/adapter-static/1.0.0-next.0:
+    resolution: {integrity: sha512-5QYrPSjfqI/Jd2av/WuwhZjRZHaWu8tGmBHM6dh5W7cd4s0PG3eW0p4eASZESHmtCFWGG00PYMRjUUFPPtEcOg==}
+    dev: false
 
   /@sveltejs/adapter-vercel/1.0.0-next.39:
     resolution: {integrity: sha512-YOPGKIILm26h22GN4/iliXce61aTG3Dq5hX8xpDx0cNuCocv0OoLfIqiGpdyJ9NIMpjwXmpVoL4+nV+yh2wcSA==}

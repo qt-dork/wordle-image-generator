@@ -17,6 +17,7 @@
   --misplaced-gradient: var(--light-yellow-gradient);
   --wrong-border: var(--light-gray-border);
   --wrong-gradient: var(--light-gray-gradient);
+  --icon-color: var(--light-color-tone-2);
   --body-font: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   /* Font sizes */
@@ -72,6 +73,8 @@
 .light-no-colorblind {
   background: var(--light-color-tone-7);
   color: var(--light-color-tone-1);
+  
+  --icon-color: var(--light-color-tone-2);
 
   --perfect-border: var(--light-green-border);
   --perfect-gradient: var(--light-green-gradient);
@@ -85,6 +88,8 @@
   background: var(--light-color-tone-7);
   color: var(--light-color-tone-1);
 
+  --icon-color: var(--light-color-tone-2);
+
   --perfect-border: var(--light-orange-border);
   --perfect-gradient: var(--light-orange-gradient);
   --misplaced-border: var(--light-blue-border);
@@ -97,6 +102,8 @@
   background: var(--dark-color-tone-7);
   color: var(--dark-color-tone-1);
 
+  --icon-color: var(--dark-color-tone-2);
+
   --perfect-border: var(--dark-green-border);
   --perfect-gradient: var(--dark-green-gradient);
   --misplaced-border: var(--dark-yellow-border);
@@ -108,6 +115,8 @@
 .dark-with-colorblind {
   background: var(--dark-color-tone-7);
   color: var(--dark-color-tone-1);
+
+  --icon-color: var(--dark-color-tone-2);
 
   --perfect-border: var(--dark-orange-border);
   --perfect-gradient: var(--dark-orange-gradient);

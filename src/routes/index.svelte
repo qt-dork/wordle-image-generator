@@ -1,8 +1,10 @@
 <script lang="ts">
-import Grid from "$lib/Grid.svelte";
-
   import ImageWrapper from "$lib/ImageWrapper.svelte";
+  import Settings from "$lib/Settings.svelte";
+  import Modal from "$lib/Modal.svelte"
   import * as wally from '$lib/utils'
+import Header from "$lib/Header.svelte";
+  
   const maxGenLength = 1000;
 
   let input = '';
@@ -13,8 +15,11 @@ import Grid from "$lib/Grid.svelte";
     score: ''
   }
 
+  let showSettings = false;
+
   $: {
     output = '';
+    indexes = [];
     const lines = input.split('\n');
     const emojiLines = [];
     let middleOutput = '';
@@ -65,19 +70,9 @@ import Grid from "$lib/Grid.svelte";
 
 <svelte:head>
   <title>Wordle Image Generator: Now Featuring Alt-Text!</title>
-  <meta name="author" content="Evie Finch" />
-  <meta name="description" content="Generates an image and alt-text for Wordle endgames" />
 </svelte:head>
 <div class="content">
-  <header>
-    <h1>Wordle Image Generator</h1>
-    <p>
-      At the end of your{' '}
-      <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> game, click
-      &quot;Share&quot; to copy your result and then paste it below to generate
-      a nice looking image and alt text for that image.
-    </p>
-  </header>
+  <Header on:settings={() => {showSettings = true}} />
   <div class="app">
     <div class="input-wrapper">
       <label for="input">Your Wordle Result: </label>
@@ -112,6 +107,10 @@ import Grid from "$lib/Grid.svelte";
       .
     </p>
   </footer>
+
+  <Modal fullscreen={true} bind:visible={showSettings}>
+    <Settings />
+  </Modal>
 </div>
 
 <style>
