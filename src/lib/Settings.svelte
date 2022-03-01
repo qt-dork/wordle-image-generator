@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { writable } from "svelte/store";
-  import wStorage from "./stores";
+  // import { writable } from "svelte/store";
+  import { theme } from "./stores";
 
   import Switch from "./Switch.svelte";
 
@@ -16,11 +16,6 @@
     class: 'light-no-colorblind' | 'light-with-colorblind' | 'dark-no-colorblind' | 'dark-with-colorblind',
   };
 
-  let theme = wStorage<ThemeObject>('theme', {
-    dark: false,
-    colorblind: false
-  });
-
   const classes: ThemeClasses[] = [
     { dark: false, colorblind: false, class: 'light-no-colorblind'},
     { dark: false, colorblind: true, class: 'light-with-colorblind' },
@@ -34,12 +29,12 @@
 
   onMount(() => {
     root = document.documentElement;
-    theme = writable<ThemeObject>(JSON.parse(localStorage.getItem("theme")) || {
-      dark: false,
-      colorblind: false
-    })
+    // theme = writable<ThemeObject>(JSON.parse(localStorage.getItem("theme")) || {
+    //   dark: false,
+    //   colorblind: false
+    // })
 
-    theme.subscribe((value) => localStorage.theme = JSON.stringify(value));
+    // theme.subscribe((value) => localStorage.theme = JSON.stringify(value));
 
   });
 

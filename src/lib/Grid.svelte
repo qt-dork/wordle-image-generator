@@ -6,18 +6,23 @@
   import { deviceIsMobile } from './utils';
 
   import Letter from './Letter.svelte';
+  import { theme } from '$lib/stores'
 
   export let indexes;
   export let firstLine;
 
   let input;
   let isMobileDevice;
+  let dark = false;
+  let color = '#ffffff'
+
+  $: color = $theme.dark ? '#121213' : '#ffffff'
 
   export function saveImage () {
     console.log(deviceIsMobile() ? "Mobile device!" : "Desktop device")
 
     console.log(toBlob(input))
-    toBlob(input, { cacheBust: true, backgroundColor: '#ffffff'})
+    toBlob(input, { cacheBust: true, backgroundColor: color})
       .then((blob) => {
         console.log("in toblob")
         const file = [

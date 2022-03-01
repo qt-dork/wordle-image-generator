@@ -14,4 +14,14 @@ export const wStorage = <T>(key: string, initValue: T): Writable<T> => {
   return store;
 }
 
-export default wStorage;
+interface ThemeObject {
+  dark: boolean;
+  colorblind: boolean;
+}
+
+export const theme = wStorage<ThemeObject>('theme', JSON.parse(localStorage.getItem("theme")) || {
+  dark: false,
+  colorblind: false
+});
+
+theme.subscribe((value) => localStorage.theme = JSON.stringify(value));
