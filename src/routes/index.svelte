@@ -3,7 +3,7 @@
   import Settings from "$lib/Settings.svelte";
   import Modal from "$lib/Modal.svelte"
   import * as wally from '$lib/utils'
-import Header from "$lib/Header.svelte";
+  import Header from "$lib/Header.svelte";
   
   const maxGenLength = 1000;
 
@@ -91,20 +91,7 @@ import Header from "$lib/Header.svelte";
   </div>
   <footer id="credit">
     <p>
-      <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> &copy;{' '}
-      <a href="https://www.powerlanguage.co.uk/">Josh Wardle</a> (
-      <a href="https://twitter.com/powerlanguish">@powerlanguish</a>). Alt-text
-      (and most other) code heavily borrowed from{' '}
-      <a href="https://wa11y.co/">wa11y.co</a> by{' '}
-      <a href="https://cariad.earth/">Cariad Eccleston</a> (
-      <a href="https://twitter.com/antagonistapp/">@antagonistapp</a>). Wordle
-      Image Generator by Evie Finch (
-      <a href="https://twitter.com/qt_dork/">@qt_dork</a>) Source and bug
-      reports:{' '}
-      <a href="https://github.com/qt-dork/wordle-image-generator">
-        qt-dork/wordle-image-generator
-      </a>
-      .
+      <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> &copy; <a href="https://www.powerlanguage.co.uk/">Josh Wardle</a> (<a href="https://twitter.com/powerlanguish">@powerlanguish</a>). Alt-text (and most other) code heavily borrowed from <a href="https://wa11y.co/">wa11y.co</a> by <a href="https://cariad.earth/">Cariad Eccleston</a> (<a href="https://twitter.com/antagonistapp/">@antagonistapp</a>). Wordle Image Generator by Evie Finch (<a href="https://twitter.com/qt_dork/">@qt_dork</a>) Source and bug reports: <a href="https://github.com/qt-dork/wordle-image-generator">qt-dork/wordle-image-generator</a>.
     </p>
   </footer>
 

@@ -34,14 +34,9 @@
 
   onMount(() => {
     root = document.documentElement;
-    let dark = false;
-    if (typeof globalThis.matchMedia === "function") {
-      if (matchMedia('(prefers-color-scheme: dark)')) dark = true
-    }
-    let colorblind = false;
     theme = writable<ThemeObject>(JSON.parse(localStorage.getItem("theme")) || {
-      dark: dark,
-      colorblind: colorblind
+      dark: false,
+      colorblind: false
     })
 
     theme.subscribe((value) => localStorage.theme = JSON.stringify(value));
