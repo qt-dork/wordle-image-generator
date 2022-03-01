@@ -1,40 +1,14 @@
-# create-svelte
+# img.wa11y.co (Wordle Image Generator)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A little [Svelte](https://svelte.dev) web app for making [Wordle](https://www.nytimes.com/games/wordle/index.html) results accessible. It does this by saving your Wordle results into an image, and copying the alt text for the image into your clipboard, for easy sharing to Twitter and other websites.
 
-## Creating a project
+This used to be made in [NextJS](https://nextjs.org), but I hate css in js too much and made the switch.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Inspired by [wa11y](https://wa11y.co) and made with assistance from [@cariad](https://twitter.com/cariadeccleston).
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+## Changelog
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- **2022-03-01**: Added dark mode, colorblind mode, better fallbacks, and rewrote it in Svelte for better speed. Why did I rewrite it in Svelte? [I hate css in js](https://twitter.com/qt_dork/status/1493149448280576001?s=20&t=mKNcJFvbunWFoYKj2gqcJQ)
+- **2022-02-20**: Added support for different first lines.
+- **2022-01-25**: Added support for the Web Share API, hard mode, and added a license (I'm really bad at that).
+- **2022-01-14**: Initial release.
