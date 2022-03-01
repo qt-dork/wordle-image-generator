@@ -78,6 +78,6 @@
 
 	:global(.settings-top > div) {
 		padding: 16px 0;
-		border-bottom: 1px solid var(--perfect-border);
+		border-bottom: 1px solid var(--icon-color);
 	}
 </style>

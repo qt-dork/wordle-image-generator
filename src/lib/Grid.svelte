@@ -1,7 +1,8 @@
 <script lang="ts">
   import { each, listen, onMount } from 'svelte/internal';
-  import { toBlob, toPng } from 'html-to-image';
-  import { saveAs } from 'file-saver'
+  import { toBlob } from 'html-to-image';
+  import pkg from 'file-saver';
+  const { saveAs } = pkg;
   import { deviceIsMobile } from './utils';
 
   import Letter from './Letter.svelte';
@@ -14,12 +15,11 @@
 
   export function saveImage () {
     console.log(deviceIsMobile() ? "Mobile device!" : "Desktop device")
-    if (input.current === undefined) {
-      return;
-    }
 
-    toBlob(input.current, { cacheBust: true, backgroundColor: '#ffffff'})
+    console.log(toBlob(input))
+    toBlob(input, { cacheBust: true, backgroundColor: '#ffffff'})
       .then((blob) => {
+        console.log("in toblob")
         const file = [
           new File([blob], 'wordle-image.png', {
             type: 'image/png',

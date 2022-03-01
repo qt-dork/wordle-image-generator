@@ -20,13 +20,15 @@
   <button
     class="share-button"
     on:click|preventDefault="{() => { 
-      console.log(output);
-      grid.saveImage();
+      // console.log(output);
+      if (grid !== undefined) {
+        grid.saveImage();
+      }
       if (output !== undefined) {
         navigator.clipboard.writeText(output)
-          .then(() => {
-            console.log("inside write text")
-          })
+          // .then(() => {
+          //   console.log("inside write text")
+          // })
       }
     }
   }">Save Image and Copy Alt-Text</button>
