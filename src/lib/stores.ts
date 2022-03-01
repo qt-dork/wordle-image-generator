@@ -1,17 +1,41 @@
 import { writable } from "svelte/store"
 import type { Writable } from "svelte/store"
+import { browser } from "$app/env"
 
-export const wStorage = <T>(key: string, initValue: T): Writable<T> => {
-  const store = writable(initValue);
-  if (typeof Storage === 'undefined') return store;
+export const localStore = <T>(key: string, initValue: T): Writable<T> => {
+  const toString = (value) => JSON.stringify(value, null, 2)
+  const toObj = JSON.parse
 
-  const storedValueStr = localStorage.getItem(key);
-  if (storedValueStr != null) store.set(JSON.parse(storedValueStr));
+  if (localStorage.getItem(key) === null) {
+    localStorage.setItem(key, toString(initValue))
+  }
 
-  store.subscribe((val) => {
-      localStorage.setItem(key, JSON.stringify(val));
-  })
-  return store;
+  const saved = toObj(localStorage.getItem(key))
+
+  const { subscribe, set, update } = writable(saved)
+
+  return {
+    subscribe,
+    set: (value) => {
+      localStorage.setItem(key, toString(value))
+      return set(value)
+    },
+    update
+  }
 }
 
-export default wStorage;
+interface ThemeObject {
+  dark: boolean;
+  colorblind: boolean;
+}
+
+export let theme = writable({
+  dark: false,
+  colorblind: false
+})
+if (browser) {
+  theme = localStore<ThemeObject>('theme', {
+    dark: false,
+    colorblind: false
+  })
+}
