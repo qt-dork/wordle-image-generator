@@ -1,5 +1,6 @@
 import { writable } from "svelte/store"
 import type { Writable } from "svelte/store"
+import { browser } from "$app/env"
 
 export const localStore = <T>(key: string, initValue: T): Writable<T> => {
   const toString = (value) => JSON.stringify(value, null, 2)
@@ -28,7 +29,13 @@ interface ThemeObject {
   colorblind: boolean;
 }
 
-export const theme = localStore<ThemeObject>('theme', {
+export let theme = writable({
   dark: false,
   colorblind: false
 })
+if (browser) {
+  theme = localStore<ThemeObject>('theme', {
+    dark: false,
+    colorblind: false
+  })
+}
