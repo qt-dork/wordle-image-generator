@@ -94,7 +94,7 @@
 		z-index: 1;
 		opacity: 0;
 		inset: 0;
-		background: var(--icon-color);
+		background: var(--background-color);
 		top: 10vh;
 		height: 100%;
 		max-width: 36rem;

@@ -1,26 +1,50 @@
 <script lang="ts">
   export let value: boolean;
+  export let disabled = false;
 
   const toggle = () => {
-    value = !value;
+    if (!disabled) {
+      value = !value;
+    }
   }
 </script>
 
-<div class="toggles">
-  <button
-    class="toggle"
-    type="button"
-    aria-pressed="{value}"
-    on:click={toggle}
-  >
-    <slot />
-    <span class="toggle-display" hidden></span>
-  </button>
+<div class="setting">
+  <div>
+    <div class="title"><slot name="title" /></div>
+    <div class="desc"><slot name="desc" /></div>
+  </div>
+  <div class="toggles">
+    <!-- <button
+      class="toggle"
+      type="button"
+      aria-pressed="{value}"
+      on:click={toggle}
+    >
+      <slot />
+      <span class="toggle-display" hidden></span>
+    </button> -->
+    <div class="toggle" on:click={toggle} class:checked={value} {disabled} />
+  </div>
 </div>
 
-
   <style>
-    .toggles {
+    .setting {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-size: var(--fs-medium);
+      font-weight: 500;
+    }
+
+    .desc {
+      font-size: var(--fs-tiny);
+      color: var(--icon-color)
+    }
+    /* .toggles {
       width: 100%;
     }
   
@@ -91,6 +115,41 @@
   
     .toggle[aria-pressed="true"] .toggle-display::before {
       transform: translate(100%, -50%);
+    } */
+
+    .toggle[disabled="true"] {
+      opacity: 0.5;
+      cursor: unset;
+    }
+
+    .toggle {
+      width: 32px;
+      height: 20px;
+      border-radius: 10px;
+      background: var(--icon-color);
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle::before {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      aspect-ratio: 1;
+      background: white;
+      border-radius: 50%;
+      margin: 2px;
+      left: 0;
+      transition: left 0.3s ease;
+    }
+
+    .checked {
+      background: var(--perfect-border);
+    }
+
+    .checked::before {
+      left: 12px;
     }
     
   </style>

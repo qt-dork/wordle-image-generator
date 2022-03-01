@@ -6,8 +6,8 @@
 
 :root {
   font-family: var(--body-font);
-  background: var(--light-color-tone-7);
-  color: var(--light-color-tone-1);
+  background: var(--background-color);
+  color: var(--text-color);
   font-size: var(--fs-regular);
 
   /* Variables used in design */
@@ -18,6 +18,8 @@
   --wrong-border: var(--light-gray-border);
   --wrong-gradient: var(--light-gray-gradient);
   --icon-color: var(--light-color-tone-2);
+  --text-color: var(--light-color-tone-1);
+  --background-color: var(--light-color-tone-7);
   --body-font: 'Clear Sans', 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   /* Font sizes */
@@ -71,10 +73,10 @@
 }
 
 .light-no-colorblind {
-  background: var(--light-color-tone-7);
-  color: var(--light-color-tone-1);
-  
+  --text-color: var(--light-color-tone-1);
+  --background-color: var(--light-color-tone-7);
   --icon-color: var(--light-color-tone-2);
+
 
   --perfect-border: var(--light-green-border);
   --perfect-gradient: var(--light-green-gradient);
@@ -85,9 +87,8 @@
 }
 
 .light-with-colorblind {
-  background: var(--light-color-tone-7);
-  color: var(--light-color-tone-1);
-
+  --text-color: var(--light-color-tone-1);
+  --background-color: var(--light-color-tone-7);
   --icon-color: var(--light-color-tone-2);
 
   --perfect-border: var(--light-orange-border);
@@ -99,9 +100,8 @@
 }
 
 .dark-no-colorblind {
-  background: var(--dark-color-tone-7);
-  color: var(--dark-color-tone-1);
-
+  --text-color: var(--dark-color-tone-1);
+  --background-color: var(--dark-color-tone-7);
   --icon-color: var(--dark-color-tone-2);
 
   --perfect-border: var(--dark-green-border);
@@ -113,9 +113,8 @@
 }
 
 .dark-with-colorblind {
-  background: var(--dark-color-tone-7);
-  color: var(--dark-color-tone-1);
-
+  --text-color: var(--dark-color-tone-1);
+  --background-color: var(--dark-color-tone-7);
   --icon-color: var(--dark-color-tone-2);
 
   --perfect-border: var(--dark-orange-border);

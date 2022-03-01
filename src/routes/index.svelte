@@ -146,7 +146,7 @@ import Header from "$lib/Header.svelte";
     background-color: inherit;
     color: inherit;
   }
-
+  
   @media (orientation: landscape) {
     .app {
       flex-flow: row wrap;

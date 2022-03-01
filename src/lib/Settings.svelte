@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { writable } from "svelte/store";
   import wStorage from "./stores";
 
   import Switch from "./Switch.svelte";
@@ -55,8 +56,15 @@
 <div class="outer">
   <div class="settings-top">
     <h3>Settings</h3>
-    <Switch bind:value={$theme.dark}>Dark Mode</Switch>
-    <Switch bind:value={$theme.colorblind}>Color Blind Mode</Switch>
+    <Switch bind:value={$theme.dark}>
+      <span slot="title">Dark Theme</span>
+    </Switch>
+    <Switch bind:value={$theme.colorblind}>
+      <span slot="title">Color Blind Mode</span>
+      <span slot="desc">High contrast colors</span>
+    </Switch>
+    <!-- <Switch bind:value={$theme.dark}>Dark Mode</Switch>
+    <Switch bind:value={$theme.colorblind}>Color Blind Mode</Switch> -->
   </div>
 </div>
 
